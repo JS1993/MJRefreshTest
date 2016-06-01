@@ -1,0 +1,43 @@
+//
+//  PrefixHeader.pch
+//  BaiSiBuDeJie
+//
+//  Created by  江苏 on 16/5/21.
+//  Copyright © 2016年 jiangsu. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+/***** 在#ifdef __OBJC__和#endif之间的内容, 只会拷贝到OC源代码文件中, 不会拷贝到其他语言的源代码文件中 *****/
+#ifdef __OBJC__
+
+#import "UIImage+JSExtension.h"
+#import "UIView+JSViewExtension.h"
+#import "UIImageView+JSExtension.h"
+
+
+/*** 日志 ***/
+#ifdef DEBUG
+#define JSLog(...) NSLog(__VA_ARGS__)
+#elif 
+#define JSLog(...)
+#endif
+#define JSLogFunc JSLog(@"%s",__func__)
+/*** 颜色 ***/
+#define JSColorA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
+#define JSColor(r, g, b) JSColorA((r), (g), (b), 255)
+#define JSRandomColor XMGColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+#define JSGlobalBgColor [UIColor colorWithRed:223/255.0 green:223/255.0 blue:223/255.0 alpha:1.0]
+#define JSTagBtnColor JSColor(73, 159, 209)
+
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+
+/**宏接口标签**/
+#define JSApiUrl @"http://api.budejie.com/api/api_open.php"
+
+#endif
+
+#endif
+
